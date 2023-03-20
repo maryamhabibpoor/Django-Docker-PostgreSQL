@@ -51,13 +51,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # installed apps
+    # installed pakages
     'crispy_forms',
     'allauth',
     'allauth.account',
 
+    # installed apps
     'accounts',
     'pages',
+    'products',
 ]
 
 SITE_ID = 1
