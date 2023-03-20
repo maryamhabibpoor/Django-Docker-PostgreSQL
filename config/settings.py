@@ -40,10 +40,41 @@ INSTALLED_APPS = [
 
     # installed apps
     'crispy_forms',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 
     'accounts',
     'pages',
 ]
+
+SITE_ID = 1
+
+# Provider specific settings
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+        'OAUTH_PKCE_ENABLED': True,
+    }
+}
+
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+
+#email setting
+EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
