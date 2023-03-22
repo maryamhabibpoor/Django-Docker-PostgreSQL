@@ -3,6 +3,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% load comment_tags %}
+{% load i18n %}
 
 
 {% block content %}
@@ -163,12 +164,12 @@
                                             <div class="row">
                                                 <div class="border-top py-5 w-100"></div>
                                                 <div class="col-lg-8 m-auto">
-                                                    <span class="reply-title pull-right">نظر خود را بنویسید</span>
+                                                    <span class="reply-title pull-right">{% trans 'Write your comment' %}</span>
                                                     <br>
                                                     <form action="{% url 'comment_create' product.id %}" method="POST">
                                                         {% csrf_token %}
                                                         {{ comment_form.as_p}}
-                                                        <input type="submit" value="ارسال">
+                                                        <input type="submit" value="{% trans 'Submit' %}">
                                                     </form>
                                                 </div>
                                             </div>
