@@ -45,9 +45,10 @@ class Comment(models.Model):
         get_user_model(),
         on_delete=models.CASCADE,
         related_name='comments',
+        verbose_name='Comment author'
     )
-    body = models.TextField()
-    stars = models.CharField(max_length=10, choices=PRODUCT_STARS)
+    body = models.TextField(verbose_name=('Comment Text'))
+    stars = models.CharField(max_length=10, choices=PRODUCT_STARS , verbose_name=('What is your score?'))
 
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
@@ -59,6 +60,6 @@ class Comment(models.Model):
     active_comments_manager = ActiveCommentsManger()
 
 
-    
+
     def get_absolute_url(self):
         return reverse('product_detail', args=[self.product.id])
