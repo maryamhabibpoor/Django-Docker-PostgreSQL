@@ -5,6 +5,7 @@ from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
 
 
+#define model for products
 class Product(models.Model):
 
     title = models.CharField(max_length=100)
@@ -23,14 +24,14 @@ class Product(models.Model):
 
 
    
-    
+   #define costome manager for active comment 
 class ActiveCommentsManger(models.Manager):
     def get_queryset(self):
         return super(ActiveCommentsManger, self).get_queryset().filter(active=True)
 
     
 
-    
+  #define model for comment  
 class Comment(models.Model):
     PRODUCT_STARS = [
         ('1', _('Very Bad')),

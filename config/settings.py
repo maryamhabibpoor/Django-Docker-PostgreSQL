@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # installed pakages
+    'rosetta',
     'crispy_forms',
     'allauth',
     'allauth.account',
